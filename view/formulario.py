@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import gspread
 import json
+from datetime import datetime
 #from google.oauth2.service_account import Credentials
 
 
@@ -48,9 +49,9 @@ if submitted :
 
     conn = st.connection("gsheets", type=GSheetsConnection)
 
-    df = conn.read()
+    df = conn.read(worksheet='Notas')
 
-    from datetime import datetime
+   
     now = datetime.now()
 
     
@@ -60,7 +61,7 @@ if submitted :
     resultado = pd.concat([df, novos_dados], ignore_index=True)
 
   
-    df = conn.update(data=resultado)
+    df = conn.update(data=resultado,worksheet='Notas')
     st.success("dados foram atualizados com sucesso")
     st.cache_data.clear()
     st.rerun()
