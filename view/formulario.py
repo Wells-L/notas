@@ -8,8 +8,6 @@ import json
 from datetime import datetime
 #from google.oauth2.service_account import Credentials
 
-
-
 st.title("Formulario de notas")
 
 with st.form("notas_form"):
@@ -43,14 +41,18 @@ with st.form("notas_form"):
         st.write("voce foi muito mal, tem que melhorar")
 
 
+
     submitted = st.form_submit_button("Submit")
 
 if submitted :
 
-    conn = st.connection("gsheets", type=GSheetsConnection)
+    if 'notas_db' not in st.session_state:
 
-    df = conn.read(worksheet='Notas')
-
+        conn = st.connection("gsheets", type=GSheetsConnection)
+        df = conn.read(worksheet='Notas')
+        st.session_state["notas_db"] = df
+    else:
+        df = st.session_state["notas_db"]
    
     now = datetime.now()
 
@@ -62,8 +64,9 @@ if submitted :
 
   
     df = conn.update(data=resultado,worksheet='Notas')
+    st.session_state["notas_db"] = df
     st.success("dados foram atualizados com sucesso")
-  
+    
 
 #https://github.com/streamlit/gsheets-connection/blob/main/examples/pages/Service_Account_Example.py
 #licao: arrumar streamlit e colocar dados no banco
