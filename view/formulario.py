@@ -10,7 +10,7 @@ from datetime import datetime
 
 
 
-st.title("Formulario de notas-teste")
+st.title("Formulario de notas")
 
 with st.form("notas_form"):
     
@@ -63,7 +63,7 @@ if submitted :
   
     df = conn.update(data=resultado,worksheet='Notas')
     st.success("dados foram atualizados com sucesso")
-    st.cache_data.clear()
-    st.rerun()
+  
+
 #https://github.com/streamlit/gsheets-connection/blob/main/examples/pages/Service_Account_Example.py
 #licao: arrumar streamlit e colocar dados no banco
