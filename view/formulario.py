@@ -8,6 +8,8 @@ import json
 from datetime import datetime
 #from google.oauth2.service_account import Credentials
 
+conn = st.connection("gsheets", type=GSheetsConnection)
+
 st.title("Formulario de notas-teste")
 
 with st.form("notas_form"):
@@ -48,7 +50,7 @@ if submitted :
 
     if 'notas_db' not in st.session_state:
 
-        conn = st.connection("gsheets", type=GSheetsConnection)
+ 
         df = conn.read(worksheet='Notas')
         st.session_state["notas_db"] = df
     else:
