@@ -8,10 +8,19 @@ formulario_page = st.Page(
     default=True,
 )
 
+visualisador_page = st.Page(
+    "view/visualisador.py",
+    title="Visualizador de notas",
+    icon=":material/cloud_upload:",
+)
+
 pg = st.navigation(
     {
-        "formulario": [formulario_page]
+        "formulario": [formulario_page],
+        "visualizador":[visualisador_page],
     }
 )
+
+
 
 pg.run()
