@@ -11,3 +11,6 @@ from datetime import datetime
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 st.title("visualisar notas")
+
+df = conn.read(worksheet='Notas')
+st.dataframe(df)
