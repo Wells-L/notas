@@ -63,7 +63,7 @@ if submitted :
 
 
     resultado = pd.concat([df, novos_dados], ignore_index=True)
-    resultado = resultado.drop_duplicates(subset=["matéria"])
+    resultado = resultado.drop_duplicates(subset=["matéria","avaliação"])
     st.dataframe(resultado)
   
     df = conn.update(data=resultado,worksheet='Notas')
