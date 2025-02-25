@@ -10,7 +10,7 @@ from datetime import datetime
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-st.title("Formulario de notas 1")
+st.title("Formulario de notas")
 
 with st.form("notas_form"):
     
