@@ -10,7 +10,7 @@ from datetime import datetime
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-st.title("Formulario de notas-teste")
+st.title("Formulario de notas")
 
 with st.form("notas_form"):
     
@@ -63,6 +63,7 @@ if submitted :
 
 
     resultado = pd.concat([df, novos_dados], ignore_index=True)
+    resulttado = resultado.drop_duplicates(subset=["matéria","avaliação","trimestre"],keep="last")
 
   
     df = conn.update(data=resultado,worksheet='Notas')
