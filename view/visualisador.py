@@ -13,11 +13,14 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 st.title("visualisar notas")
 
 df = conn.read(worksheet='Notas')
-st.dataframe(df)
 
 lista_de_materia = df["matéria"].unique()
 
 materia_selecionada = st.selectbox(
     "escolha sua materia",lista_de_materia
 )
+df_filtrado = df.loc[df["matéria"]== materia_selecionada]
+
+st.dataframe(df_filtrado)
+
 
