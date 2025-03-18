@@ -28,9 +28,11 @@ df_dumb = pd.DataFrame(dados_dumb)
 
 df_filtrado = df.loc[df["matéria"]== materia_selecionada,["avaliação","trimestre","nota"]]
 
+df_final = pd.concat([df_dumb,df_filtrado])
+
 df_pivot = df_filtrado.pivot(index="avaliação",columns="trimestre",values="nota")
 
-st.dataframe(df_filtrado)
+st.dataframe(df_final)
 
 
 
