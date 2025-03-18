@@ -23,10 +23,14 @@ materia_selecionada = st.selectbox(
 dados_dumb = {"avaliação":["AT1","AT2","APA","AT1","AT2","APA","AT1","AT2","APA"],
               "trimestre":["1","1","1","2","2","2","3","3","3"],
               "nota":[pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA]}
+
 df_dumb = pd.DataFrame(dados_dumb)
-df_filtrado = df.loc[df["matéria"]== materia_selecionada]
+
+df_filtrado = df.loc[df["matéria"]== materia_selecionada,["avaliação","trimestre","nota"]]
+
 df_pivot = df_filtrado.pivot(index="avaliação",columns="trimestre",values="nota")
-st.dataframe(dados_dumb)
+
+st.dataframe(df_filtrado)
 
 
 
