@@ -21,7 +21,7 @@ materia_selecionada = st.selectbox(
 )
 
 dados_dumb = {"avaliação":["AT1","AT2","APA","AT1","AT2","APA","AT1","AT2","APA"],
-              "trimestre":["1","1","1","2","2","2","3","3","3"],
+              "trimestre":[1,1,1,2,2,2,3,3,3],
               "nota":[pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA,pd.NA]}
 
 df_dumb = pd.DataFrame(dados_dumb)
