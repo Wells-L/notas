@@ -15,7 +15,7 @@ st.title("visualisar notas")
 df = conn.read(worksheet='Notas')
 st.dataframe(df)
 
-materia = df["matéria"].unique().tolist
+materia = df["matéria"].unique().tolist() 
 
 st.write(materia)
 
