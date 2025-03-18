@@ -20,7 +20,7 @@ materia_selecionada = st.selectbox(
     "escolha sua materia",lista_de_materia
 )
 df_filtrado = df.loc[df["matéria"]== materia_selecionada]
-
-st.dataframe(df_filtrado)
+df_pivot = df_filtrado.pivot(index="avaliação",columns="trimestre",values="nota")
+st.dataframe(df_pivot)
 
 
