@@ -15,7 +15,9 @@ st.title("visualisar notas")
 df = conn.read(worksheet='Notas')
 st.dataframe(df)
 
-materia = df["matéria"].unique().tolist() 
+lista_de_materia = df["matéria"].unique()
 
-st.write(materia)
+materia_selecionada = st.selectbox(
+    "escolha sua materia",lista_de_materia
+)
 
