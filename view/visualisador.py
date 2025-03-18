@@ -14,3 +14,7 @@ st.title("visualisar notas")
 
 df = conn.read(worksheet='Notas')
 st.dataframe(df)
+
+materia = df["matéria"].unique()
+st.write(materia)
+
