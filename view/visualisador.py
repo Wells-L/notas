@@ -38,7 +38,7 @@ st.dataframe(df_pivot)
 df_final["prova feita"] = ~df_final["nota"].isna()
 
 groupby_trimestre = df_final.fillna(0).groupby("trimestre")["nota"].mean()
-df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'})
+
 groupby_trimestre_falta = df.final.groupby('trimestre').agg({'nota':"sum",'prova feita': 'sum'})
 st.dataframe(groupby_trimestre_falta)
 
