@@ -33,8 +33,10 @@ df_final = df_final.drop_duplicates(subset=["avaliação","trimestre"],keep="las
 
 df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
 
-
 st.dataframe(df_pivot)
 
+groupby_trimestre = df_final.groupby("trimestre").mean()
 
+st.dataframe(df_final)
+st.dataframe(groupby_trimestre)
 
