@@ -40,7 +40,7 @@ df_final["prova falta"] = df_final["nota"].isna()
 groupby_trimestre = df_final.fillna(0).groupby("trimestre")["nota"].mean()
 
 groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
-#groupby_trimestre_falta["quanto falta trimestre"] = 18-
+groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
 st.dataframe(groupby_trimestre_falta)
 
 st.dataframe(groupby_trimestre)
