@@ -35,7 +35,7 @@ df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
 
 st.dataframe(df_pivot)
 
-groupby_trimestre = df_final.groupby("trimestre").mean()
+groupby_trimestre = df_final.fillna(0).groupby("trimestre").mean()
 
 st.dataframe(df_final)
 st.dataframe(groupby_trimestre)
