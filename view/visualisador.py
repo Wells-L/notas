@@ -35,6 +35,8 @@ df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
 
 st.dataframe(df_pivot)
 
+df_final["prova feita"] = df_final["nota"].isna()
+
 groupby_trimestre = df_final.fillna(0).groupby("trimestre")["nota"].mean()
 
 st.dataframe(df_final)
