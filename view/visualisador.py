@@ -39,7 +39,7 @@ df_final["prova feita"] = ~df_final["nota"].isna()
 
 groupby_trimestre = df_final.fillna(0).groupby("trimestre")["nota"].mean()
 
-groupby_trimestre_falta = df.final.groupby('trimestre').agg({'nota':"sum",'prova feita': 'sum'})
+groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova feita': 'sum'})
 st.dataframe(groupby_trimestre_falta)
 
 st.dataframe(groupby_trimestre)
