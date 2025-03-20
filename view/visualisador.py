@@ -33,7 +33,7 @@ df_final = df_final.drop_duplicates(subset=["avaliação","trimestre"],keep="las
 
 df_pivot = df_filtrado.pivot(index="avaliação",columns="trimestre",values="nota")
 
-st.dataframe(df_final)
+st.dataframe(df_pivot)
 
 
 
