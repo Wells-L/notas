@@ -35,11 +35,12 @@ df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
 
 st.dataframe(df_pivot)
 
-df_final["prova feita"] = ~df_final["nota"].isna()
+df_final["prova falta"] = df_final["nota"].isna()
 
 groupby_trimestre = df_final.fillna(0).groupby("trimestre")["nota"].mean()
 
-groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova feita': 'sum'})
+groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
+#groupby_trimestre_falta["quanto falta trimestre"] = 18-
 st.dataframe(groupby_trimestre_falta)
 
 st.dataframe(groupby_trimestre)
