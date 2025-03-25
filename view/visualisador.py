@@ -42,7 +42,7 @@ groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta[
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3
 st.dataframe(groupby_trimestre_falta)
 
-df_pivot_trimestre_falta = groupby_trimestre_falta.pivot(columns="trimestre",values=["media trimestre","quanto falta trimestre"])
-st.dataframe(df_pivot_trimestre_falta)
+trimestre_falta = groupby_trimestre_falta[["trimestre","quanto falta trimestre","media trimestre"]].transpose()
+st.dataframe(trimestre_falta)
 
  
