@@ -43,7 +43,8 @@ groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta[
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3
 
 
-trimestre_falta = groupby_trimestre_falta[["trimestre","quanto falta trimestre","media trimestre"]].transpose()
+trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
+trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 st.dataframe(trimestre_falta)
 
 media_do_ano = df_final["nota"].sum()/9
