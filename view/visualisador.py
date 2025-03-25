@@ -32,7 +32,7 @@ df_final = pd.concat([df_dumb,df_filtrado])
 df_final = df_final.drop_duplicates(subset=["avaliação","trimestre"],keep="last")
 
 df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
-st.write(df_pivot.columns)
+df_pivot.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 
 st.dataframe(df_pivot)
 
