@@ -46,6 +46,7 @@ trimestre_falta = groupby_trimestre_falta[["trimestre","quanto falta trimestre",
 st.dataframe(trimestre_falta)
 
 media_do_ano = df_final["nota"].sum()/9
+media_do_ano = f'{media_do_ano:.2f}'
 if media_do_ano >= 6:
     situacao = "aprovado"
 
