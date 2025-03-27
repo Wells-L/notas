@@ -54,7 +54,7 @@ st.markdown("### informações do trimestre")
 
 st.dataframe(trimestre_falta)
 
-col1,col2 = st.colunms(2)
+col1,col2 = st.columns(2)
 
 with col2 :
 
@@ -66,4 +66,3 @@ with col2 :
     else:
         situacao = "-reprovado"
     st.metric(label="Media do ano", value=media_do_ano_str, delta=situacao)
-        
