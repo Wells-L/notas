@@ -54,12 +54,16 @@ st.markdown("### informações do trimestre")
 
 st.dataframe(trimestre_falta)
 
-media_do_ano = df_final["nota"].sum()/9
-media_do_ano_str = f'{media_do_ano:.2f}'
-if media_do_ano >= 6:
-    situacao = "aprovado"
+col1,col2 = st.colunms(2)
 
-else:
-    situacao = "-reprovado"
-st.metric(label="Media do ano", value=media_do_ano_str, delta=situacao)
- 
+with col2 :
+
+    media_do_ano = df_final["nota"].sum()/9
+    media_do_ano_str = f'{media_do_ano:.2f}'
+    if media_do_ano >= 6:
+        situacao = "aprovado"
+
+    else:
+        situacao = "-reprovado"
+    st.metric(label="Media do ano", value=media_do_ano_str, delta=situacao)
+        
