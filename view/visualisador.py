@@ -56,7 +56,7 @@ st.dataframe(trimestre_falta)
 
 col1,col2,col3,col4,col5 = st.columns(5)
 
-with col5 :
+with col4 :
 
     media_do_ano = df_final["nota"].sum()/9
     media_do_ano_str = f'{media_do_ano:.2f}'
