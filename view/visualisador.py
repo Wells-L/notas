@@ -45,7 +45,7 @@ df_final["prova falta"] = df_final["nota"].isna()
 groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
 groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3 
-groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(2)
+groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
 
 trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
 trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
@@ -54,9 +54,9 @@ st.markdown("### informações do trimestre")
 
 st.dataframe(trimestre_falta)
 
-col1,col2,col3,col4 = st.columns(4)
+col1,col2,col3,col4,col5 = st.columns(5)
 
-with col4 :
+with col5 :
 
     media_do_ano = df_final["nota"].sum()/9
     media_do_ano_str = f'{media_do_ano:.2f}'
