@@ -20,7 +20,7 @@ materia_selecionada = st.selectbox(
     "escolha sua materia",lista_de_materia
 )
 
-st.markdown("## notas em geral")
+st.markdown("### notas em geral")
 
 dados_dumb = {"avaliação":["AT1","AT2","APA","AT1","AT2","APA","AT1","AT2","APA"],
               "trimestre":[1,1,1,2,2,2,3,3,3],
