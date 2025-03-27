@@ -54,6 +54,8 @@ st.markdown("### informações do trimestre")
 
 st.dataframe(trimestre_falta)
 
+st.markdown(f"### media de {materia_selecionada}")
+
 col1,col2,col3,col4,col5 = st.columns(5)
 
 with col4 :
