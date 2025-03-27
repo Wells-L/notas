@@ -54,9 +54,9 @@ st.markdown("### informações do trimestre")
 
 st.dataframe(trimestre_falta)
 
-col1,col2 = st.columns(2)
+col1,col2,col3 = st.columns(3)
 
-with col2 :
+with col3 :
 
     media_do_ano = df_final["nota"].sum()/9
     media_do_ano_str = f'{media_do_ano:.2f}'
