@@ -56,7 +56,7 @@ st.dataframe(trimestre_falta)
 
 col1,col2,col3,col4,col5 = st.columns(5)
 
-with col4 :
+with col5 :
 
     media_do_ano = df_final["nota"].sum()/9
     media_do_ano_str = f'{media_do_ano:.2f}'
@@ -65,4 +65,4 @@ with col4 :
 
     else:
         situacao = "-reprovado"
-    st.metric(label=f"Media de {materia_selecionada}", value=media_do_ano_str, delta=situacao)
+    st.metric(label=f"Media de {materia_selecionada}", value=media_do_ano_str, delta=situacao, border=True)
