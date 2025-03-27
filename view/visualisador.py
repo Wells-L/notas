@@ -46,7 +46,7 @@ groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova
 groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3 
 groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
-groupby_trimestre_falta["quanto falta por prova"] = (54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
+groupby_trimestre_falta["quanto falta por prova"] = int(54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
 trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
 trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 
