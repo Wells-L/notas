@@ -67,4 +67,4 @@ with col4 :
 
     else:
         situacao = "-reprovado"
-    st.metric( value=media_do_ano_str, delta=situacao, border=True)
+    st.metric(label=f"Media anual {materia_selecionada}", value=media_do_ano_str, delta=situacao, border=True)
