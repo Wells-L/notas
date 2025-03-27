@@ -28,8 +28,6 @@ dados_dumb = {"avaliação":["AT1","AT2","APA","AT1","AT2","APA","AT1","AT2","AP
 
 df_dumb = pd.DataFrame(dados_dumb)
 
-st.markdown("### informações do trimestre")
-
 
 df_filtrado = df.loc[df["matéria"]== materia_selecionada,["avaliação","trimestre","nota"]]
 
@@ -38,6 +36,7 @@ df_final = df_final.drop_duplicates(subset=["avaliação","trimestre"],keep="las
 
 df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
 df_pivot.columns = ["trimestre 1","trimestre 2","trimestre 3"]
+
 
 st.dataframe(df_pivot)
 
@@ -50,6 +49,9 @@ groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3
 
 trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
 trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
+
+st.markdown("### informações do trimestre")
+
 st.dataframe(trimestre_falta)
 
 media_do_ano = df_final["nota"].sum()/9
