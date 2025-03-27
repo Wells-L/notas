@@ -28,6 +28,9 @@ dados_dumb = {"avaliação":["AT1","AT2","APA","AT1","AT2","APA","AT1","AT2","AP
 
 df_dumb = pd.DataFrame(dados_dumb)
 
+st.markdown("### informações do trimestre")
+
+
 df_filtrado = df.loc[df["matéria"]== materia_selecionada,["avaliação","trimestre","nota"]]
 
 df_final = pd.concat([df_dumb,df_filtrado])
