@@ -43,7 +43,7 @@ df_pivot.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 
 # printa o dataframe notas em geral
 st.dataframe(df_pivot)
-st.write("l")
+st.write("d")
 # identifica as provas que faltam
 df_final["prova falta"] = df_final["nota"].isna()
 # calcula os dados necessarios
