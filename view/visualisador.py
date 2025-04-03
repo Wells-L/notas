@@ -63,5 +63,5 @@ st.write(total_nota)
 
 total_provas_falta = groupby_trimestre_falta["prova falta"].sum()
 st.write(total_provas_falta)
-teste = 54-total_nota
+teste = (54-total_nota) / 3
 st.write(teste)
