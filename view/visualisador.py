@@ -41,14 +41,14 @@ df_final = df_final.drop_duplicates(subset=["avaliação","trimestre"],keep="las
 df_pivot = df_final.pivot(index="avaliação",columns="trimestre",values="nota")
 df_pivot.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 
-# printa o dataframe
+# printa o dataframe notas em geral
 st.dataframe(df_pivot)
 st.write("l")
 # identifica as provas que faltam
 df_final["prova falta"] = df_final["nota"].isna()
-# calcula os dados nessecarios
+# calcula os dados necessarios
 groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
-groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
+groupby_trimestre_falta["quanto falta trimestre"] = int(18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3 
 groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
     
