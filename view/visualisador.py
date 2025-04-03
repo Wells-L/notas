@@ -52,8 +52,11 @@ groupby_trimestre_falta["nota"] = groupby_trimestre_falta["nota"].fillna(0)
 groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3 
 groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
-    
+
 # calcula quanto falta para chegar em 6
 groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
 st.dataframe(groupby_trimestre_falta)
 # deixa a tabela com uma melhor visualisacao 
+#calculando total da nota por materia
+total_nota = groupby_trimestre_falta["nota"].sum()
+st.dataframe(total_nota)
