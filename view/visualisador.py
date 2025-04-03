@@ -54,7 +54,7 @@ groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3
 groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
     
 # calcula quanto falta para chegar em 6
-groupby_trimestre_falta["quanto falta por prova"] = (54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
+#groupby_trimestre_falta["quanto falta por prova"] = (54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
 # deixa a tabela com uma melhor visualisacao 
 trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
 trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
