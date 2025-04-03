@@ -56,3 +56,26 @@ groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media tri
 # calcula quanto falta para chegar em 6
 groupby_trimestre_falta["quanto falta por prova"] = (54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
 # deixa a tabela com uma melhor visualisacao 
+trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
+trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
+# adiciona um subtitulo
+st.markdown("### informações do trimestre")
+#mostra a tabela com as informacoes do trimestre
+st.dataframe(trimestre_falta)
+#dividi em 3 colunas para melhor visualicasao 
+col1,col2,col3, = st.columns(3)
+
+with col3 :
+# calcula a media do ano
+    media_do_ano = df_final["nota"].sum()/9
+    media_do_ano_str = f'{media_do_ano:.2f}'
+        # mostra a situacao
+    if media_do_ano >= 6:
+            situacao = "aprovado"
+
+    else:
+        situacao = "-reprovado"
+        #exibe a st.metric com informacoes 
+        st.metric(label=f"Media anual {materia_selecionada}", value=media_do_ano_str, delta=situacao, border=True)
+
+#resolver quanto falta em cada prova 
