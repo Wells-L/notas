@@ -48,15 +48,12 @@ st.write("l")
 df_final["prova falta"] = df_final["nota"].isna()
 # calcula os dados necessarios
 groupby_trimestre_falta = df_final.groupby('trimestre').agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
-#groupby_trimestre_falta["quanto falta trimestre"] = int(18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
-groupby_trimestre_falta["quanto falta trimestre"] = (
-    ((18 - groupby_trimestre_falta["nota"]) / groupby_trimestre_falta["prova falta"]).astype(int)
-)
+groupby_trimestre_falta["quanto falta trimestre"] = (18-groupby_trimestre_falta["nota"])/groupby_trimestre_falta["prova falta"]
 groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3 
 groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
     
 # calcula quanto falta para chegar em 6
-groupby_trimestre_falta["quanto falta por prova"] = int(54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
+groupby_trimestre_falta["quanto falta por prova"] = (54-groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index())
 # deixa a tabela com uma melhor visualisacao 
 trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
 trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
