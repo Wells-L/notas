@@ -60,3 +60,5 @@ st.dataframe(groupby_trimestre_falta)
 #calculando total da nota por materia
 total_nota = groupby_trimestre_falta["nota"].sum()
 st.write(total_nota)
+teste = 54-total_nota
+st.write(teste)
