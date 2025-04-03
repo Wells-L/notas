@@ -54,5 +54,6 @@ groupby_trimestre_falta["media trimestre"] = groupby_trimestre_falta["nota"]/3
 groupby_trimestre_falta["media trimestre"] =  groupby_trimestre_falta["media trimestre"].round(1)
     
 # calcula quanto falta para chegar em 6
-
+groupby_trimestre_falta.agg({'nota':"sum",'prova falta': 'sum'}).reset_index()
+st.dataframe(groupby_trimestre_falta)
 # deixa a tabela com uma melhor visualisacao 
