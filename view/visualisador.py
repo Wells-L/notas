@@ -43,7 +43,7 @@ df_pivot.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 
 # printa o dataframe notas em geral
 st.dataframe(df_pivot)
-st.write("d")
+
 # identifica as provas que faltam
 df_final["prova falta"] = df_final["nota"].isna()
 # calcula os dados necessarios
@@ -65,12 +65,14 @@ quanto_falta_por_prova = (54-total_nota) / total_provas_falta
 
 groupby_trimestre_falta["quanto falta por prova"] = quanto_falta_por_prova
 # deixa a tabela com uma melhor visualisacao 
-trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre"]].transpose()
+trimestre_falta = groupby_trimestre_falta[["quanto falta trimestre","media trimestre","quanto falta por prova"]].transpose()
 trimestre_falta.columns = ["trimestre 1","trimestre 2","trimestre 3"]
 # adiciona um subtitulo
 st.markdown("### informações do trimestre")
+
 #mostra a tabela com as informacoes do trimestre
 st.dataframe(trimestre_falta)
+
 #dividi em 3 colunas para melhor visualicasao 
 col1,col2,col3, = st.columns(3)
 
